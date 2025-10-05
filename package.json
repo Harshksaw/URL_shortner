@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-  "start": "node dist/server.js",
+    "start": "node dist/server.js",
     "dev": "nodemon src/server.ts"
   },
   "keywords": [],
@@ -12,6 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@trpc/client": "^11.6.0",
+    "@trpc/server": "^11.6.0",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "mongoose": "^8.19.0",
