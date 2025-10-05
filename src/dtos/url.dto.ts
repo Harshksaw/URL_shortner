@@ -3,4 +3,3 @@ export interface CreateUrlDTO {
     shortUrl: string;
 }
 
-export interface AddUrlTo
