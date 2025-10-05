@@ -16,6 +16,36 @@ export class CacheRepository {
         return nextId;
     }
 
+    async setUrlMapping(shortUrl:string, originalUrl:string): Promise<void> {
+
+        const key = `url:${shortUrl}`;
+        if(!redisClient.isOpen){
+            await redisClient.connect();
+        }
+        await redisClient.set(key, originalUrl, {EX: 86400});
+
+    }
+
+    async getUrlMapping(shortUrl:string): Promise<string | null> {
+
+        const key = `url:${shortUrl}`;
+        if(!redisClient.isOpen){
+            await redisClient.connect();
+        }
+        const originalUrl = await redisClient.get(key);
+        return originalUrl;
+    }   
+
+    async deleteUrlMapping(shortUrl:string): Promise<void> {
+
+        const key = `url:${shortUrl}`;
+        if(!redisClient.isOpen){
+            await redisClient.connect();
+        }
+        await redisClient.del(key);
+        return
+    }   
 
 
-}
+
+}   
