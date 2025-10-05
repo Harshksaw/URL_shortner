@@ -6,6 +6,7 @@ type ServerConfig = {
     MONGO_URI?: string 
     REDIS_URL: string
     REDIS_COUNTER_KEY?: string
+    BASE_URL: string
 }
 
 function loadEnv() {
@@ -19,5 +20,6 @@ export const serverConfig: ServerConfig = {
     PORT: Number(process.env.PORT) || 3001,
     MONGO_URI: process.env.MONGODB_URI,
     REDIS_URL: process.env.REDIS_URL || 'redis://localhost:6379',
-    REDIS_COUNTER_KEY: process.env.REDIS_COUNTER_KEY || 'url_id_counter'
+    REDIS_COUNTER_KEY: process.env.REDIS_COUNTER_KEY || 'url_id_counter',
+    BASE_URL: process.env.BASE_URL || 'sho.rt'
 };
