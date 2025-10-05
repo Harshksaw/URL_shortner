@@ -6,7 +6,7 @@ FROM redis:7.2-alpine
 
 ARG REDIS_CONF_PATH=/usr/local/etc/redis/redis.conf
 
-COPY redis.conf ${REDIS_CONF_PATH}
+COPY docker/redis/redis.conf ${REDIS_CONF_PATH}
 
 # Expose the standard Redis port (this is mostly informative; compose maps ports)
 EXPOSE 6379
